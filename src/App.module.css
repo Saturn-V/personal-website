@@ -1,0 +1,89 @@
+.App {
+  height: 100%;
+  display: flex;
+  text-align: center;
+  flex: 1;
+}
+input {
+  font-family: inherit;
+  -webkit-appearance: none; /* remove inset shadow on mobile safari */
+}
+
+.Content {
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  margin-top: 5rem;
+  flex-direction: column;
+}
+
+.Left,
+.Right {
+  flex: 1;
+  /* background-image: linear-gradient(
+    141deg,
+    #9fb8ad 0%,
+    #1fc8db 51%,
+    #2cb5e8 75%
+  ); */
+  /* box-shadow: inset 0 0 10px #000000; */
+}
+
+.MainContent {
+  /* box-shadow: 0 0 10px 6px black; */
+  /* padding: 0 0.5rem; */
+  margin: 0 15%;
+  display: flex;
+  flex: 6;
+  flex-direction: column;
+}
+
+.Text {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.HalfWidth {
+  margin-right: 25%;
+}
+.AboutMe {
+  margin-right: 25%;
+  margin-bottom: 4rem;
+}
+
+.Contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.Contacts {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.Contacts > a:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.Contacts > a:hover,
+a:focus {
+  color: gray;
+}
+
+.Spacer {
+  margin-bottom: 4rem;
+}
+
+.Job,
+.Role {
+  text-align: left;
+}
+.Job,
+.Role span:first-child {
+  width: 20%;
+}
+
+.FlexWrapper {
+  display: flex;
+}

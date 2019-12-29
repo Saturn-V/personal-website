@@ -1,0 +1,27 @@
+.Title {
+  /* width: 100%; */
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.Title.Heavy {
+  font-weight: 700;
+}
+.Title.Light {
+  font-weight: 300;
+}
+.Title.Default {
+  font-weight: 500;
+}
+
+.Title.Large {
+  font-size: 3rem;
+}
+
+.Title.Medium {
+  font-size: 2rem;
+}
+
+.Title.Small {
+  font-size: 1.5rem;
+}
