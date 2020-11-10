@@ -13,7 +13,7 @@ input {
   /* height: 100%; */
   width: 100%;
   display: flex;
-  margin-top: 5rem;
+  margin-top: 1.5rem;
   flex-direction: column;
 }
 
@@ -32,7 +32,7 @@ input {
 .MainContent {
   /* box-shadow: 0 0 10px 6px black; */
   /* padding: 0 0.5rem; */
-  margin: 0 15%;
+  margin: 0 3.25%;
   display: flex;
   flex: 6;
   flex-direction: column;
@@ -47,18 +47,19 @@ input {
   margin-right: 25%;
 }
 .AboutMe {
-  margin-right: 25%;
+  margin-right: 5%;
   margin-bottom: 4rem;
 }
 
 .Contact {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
 }
 
 .Contacts {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-top: 1rem;
 }
 
@@ -78,6 +79,7 @@ a:focus {
 .Job,
 .Role {
   text-align: left;
+  margin-bottom: 5%;
 }
 .Job,
 .Role span:first-child {
@@ -86,4 +88,43 @@ a:focus {
 
 .FlexWrapper {
   display: flex;
+  flex-direction: column;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .MainContent {
+    margin: 0 7.5%;
+  }
+  .Content {
+    margin-top: 3rem;
+  }
+  .AboutMe {
+    margin-right: 15%;
+  }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .MainContent {
+    margin: 0 15%;
+  }
+  .Content {
+    margin-top: 5rem;
+  }
+  .AboutMe {
+    margin-right: 25%;
+  }
+  .FlexWrapper {
+    flex-direction: row;
+  }
+  .Contacts {
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    margin-top: 1rem;
+  }
+  .Job, .Role {
+    margin-bottom: 1.5%;
+  }
 }

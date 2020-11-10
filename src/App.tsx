@@ -19,34 +19,38 @@ const App: React.FC = () => {
             value={`👋\nHey there *waves*, my name is Alex, software engineer, learner and tinkerer.`}
             size={Size.Large}
             weight={Weight.Heavy}
-            className={styles.HalfWidth}
+            className={styles.AboutMe}
           />
           <br />
           <Title
-            value={`Impacting communities around me through what I help create has always been what's kept me interested in writing software. My experiences thus far have presented me with opportunities to do just that, and Notable is no exception. I'm loving the work we do here around improving the doctor's visit experience for patients and providers both in and out of the medical facility.`}
+            value={`Impacting communities around me through what I help create has always been what's kept me interested in writing software. My experiences thus far have presented me with opportunities to do just that, and Notable has been no exception. I loved the work I was apart of there, improving doctor-patient visit experiences both in and out of the medical facility.`}
             size={Size.Small}
             weight={Weight.Heavy}
             className={styles.AboutMe}
           />
 
           <Title value={`Current`} size={Size.Large} weight={Weight.Heavy} />
-          <div className={styles.Role}>
-            <div className={styles.FlexWrapper}>
-              <Title
-                value={`Notable`}
-                size={Size.Medium}
-                weight={Weight.Heavy}
-                className={styles.Job}
-              />
-              <span className={`${styles.Text}`}>
-                joined {moment("20180601").fromNow()}
-              </span>
-            </div>
+          <div className={styles.FlexWrapper}>
+            <Title
+              value={`Looking for new opportunities`}
+              size={Size.Medium}
+              weight={Weight.Heavy}
+              className={styles.Text}
+            />
           </div>
 
           <div className={styles.Spacer} />
 
           <Title value={`Previous`} size={Size.Large} weight={Weight.Heavy} />
+          <div className={styles.Role}>
+            <div className={styles.FlexWrapper}>
+              <Title value={`Notable`} size={Size.Medium} weight={Weight.Heavy} />
+              <span className={styles.Text}>
+                {" "}
+                left {moment("20201030").fromNow()}, employed 2 years 6 months
+              </span>
+            </div>
+          </div>
           <div className={styles.Role}>
             <div className={styles.FlexWrapper}>
               <Title value={`Shyp`} size={Size.Medium} weight={Weight.Heavy} />
@@ -71,7 +75,7 @@ const App: React.FC = () => {
           <div className={styles.Contact}>
             <Title value={`Contact`} size={Size.Large} weight={Weight.Heavy} />
             <div className={styles.Contacts}>
-              <Link href="mailto:alex.pena@students.makeschool.com">
+              <Link href="mailto:alexaaronpena@gmail.com">
                 <Title
                   value={`Email`}
                   size={Size.Medium}
