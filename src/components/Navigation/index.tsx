@@ -10,7 +10,7 @@ interface Props {}
 export function Navigation(_props: Props) {
   return (
     <div className={`${styles.Navigation} ${utilStyles.Debug}`}>
-      <Title value="Alex Peña." size={Size.Large} weight={Weight.Heavy} />
+      <Title value="Alex Peña." size={Size.Large} weight={Weight.Heavy} gradient={true} />
       <div className={styles.NavLinks}></div>
     </div>
   );

@@ -18,6 +18,7 @@ interface Props {
   size: Size;
   weight?: Weight;
   className?: string;
+  gradient?: boolean;
 }
 
 const Title: React.FC<Props> = ({
@@ -25,13 +26,14 @@ const Title: React.FC<Props> = ({
   size,
   weight,
   className,
+  gradient,
   children
 }) => {
   return (
     <span
       className={`${styles.Title} ${styles[size]} ${utilStyles.Debug} ${
         styles[weight || Weight.Default]
-      } ${className}`}
+      } ${className} ${gradient && styles.Gradient}`}
     >
       {value}
       {children}
