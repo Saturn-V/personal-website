@@ -11,7 +11,6 @@ import styles from "./App.module.css";
 const App: React.FC = () => {
   return (
     <div className={styles.App}>
-      {/* <div className={`${styles.Left}`} /> */}
       <div className={styles.MainContent}>
         <Navigation />
         <div className={`${styles.Content} ${utilStyles.Debug}`}>
@@ -29,22 +28,27 @@ const App: React.FC = () => {
             className={styles.AboutMe}
           />
 
-          <Title value={`Current`} size={Size.Large} weight={Weight.Heavy} />
-          <div className={styles.FlexWrapper}>
-            <Title
-              value={`Looking for new opportunities`}
-              size={Size.Medium}
-              weight={Weight.Heavy}
-              className={styles.Text}
-            />
+          <Title value={`Current`} size={Size.Large} weight={Weight.Heavy} margin/>
+          <div className={styles.Role}>		          
+             <div className={styles.FlexWrapper}>		
+               <Title		               
+                 value={`Omada`}		 
+                 size={Size.Medium}		 
+                 weight={Weight.Heavy}
+                 className={`${styles.Gradient} ${styles.Omada}`}
+               />		
+               <span className={`${styles.Text}`}>		
+                 joined {moment("20210111").fromNow()}		
+               </span>		
+            </div>
           </div>
 
           <div className={styles.Spacer} />
 
-          <Title value={`Previous`} size={Size.Large} weight={Weight.Heavy} />
+          <Title value={`Previous`} size={Size.Large} weight={Weight.Heavy} margin/>
           <div className={styles.Role}>
             <div className={styles.FlexWrapper}>
-              <Title value={`Notable`} size={Size.Medium} weight={Weight.Heavy} />
+              <Title value={`Notable`} size={Size.Medium} weight={Weight.Heavy} className={`${styles.Gradient} ${styles.Notable}`}/>
               <span className={styles.Text}>
                 {" "}
                 left {moment("20201030").fromNow()}, employed 2 years 6 months
@@ -62,7 +66,7 @@ const App: React.FC = () => {
           </div>
           <div className={styles.Role}>
             <div className={styles.FlexWrapper}>
-              <Title value={`Aux`} size={Size.Medium} weight={Weight.Heavy} />
+              <Title value={`Aux`} size={Size.Medium} weight={Weight.Heavy} className={`${styles.Gradient} ${styles.Aux}`} />
               <span className={styles.Text}>
                 {" "}
                 left {moment("20180301").fromNow()}, employed 1 year
@@ -73,7 +77,7 @@ const App: React.FC = () => {
           <div className={styles.Spacer} />
 
           <div className={styles.Contact}>
-            <Title value={`Contact`} size={Size.Large} weight={Weight.Heavy} />
+            <Title value={`Contact`} size={Size.Large} weight={Weight.Heavy} margin/>
             <div className={styles.Contacts}>
               <Link href="mailto:alexaaronpena@gmail.com">
                 <Title
@@ -107,7 +111,6 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* <div className={`${styles.Right}`} /> */}
     </div>
   );
 };

@@ -26,12 +26,23 @@
   font-size: 1.5rem;
 }
 
+.Margin {
+  margin-bottom: 5%;
+}
+
+
+/* look i'm backend / dev ops eng by heart ok leave my css alone */
 .Gradient {
   /* 
-    take from: https://www.apple.com/homepod-mini/
+    taken from: https://www.apple.com/homepod-mini/
     <p class="hero-callout typography-hero-callout text-gradient " style>​Room-filling sound.​</p>
    */
   background: -webkit-linear-gradient(0deg, #ffa745 0%, #fe869f 30%, #ef7ac8 45%, #a083ed 70%, #43aeff 85%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+@media (min-width: 400px) {
+  .Margin {
+    margin-bottom: 0;
+  }
 }
