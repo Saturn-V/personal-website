@@ -110,7 +110,7 @@ const App: React.FC = () => {
             const joinedAtStr = `${joinedAt}`;
             const leftAtStr = `${leftAt}`;
             return (
-              <div className={styles.Role}>
+              <div key={joinedAt + leftAt} className={styles.Role}>
                 <div className={styles.FlexWrapper}>
                   <Title
                     value={name}
