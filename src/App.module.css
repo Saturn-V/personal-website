@@ -131,6 +131,12 @@ a:focus {
   }
 }
 
+.Gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .Gradient.Aux {
   /* 
     taken from: https://www.apple.com/homepod-mini/
@@ -157,6 +163,18 @@ a:focus {
     <p class="hero-callout typography-hero-callout text-gradient " style>​Room-filling sound.​</p>
    */
   background: -webkit-linear-gradient(90deg,rgba(255,133,69,1) 0%, rgba(254,155,134,1) 30%, rgba(252,147,132,1) 45%, rgba(224,157,132,1) 70%, rgba(255,138,67,1) 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Gradient.PerfectVenue {
+  /* 
+    taken from: https://www.apple.com/homepod-mini/
+    <p class="hero-callout typography-hero-callout text-gradient " style>​Room-filling sound.​</p>
+   */
+  background: -webkit-linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,44,44,1) 30%, rgba(255,42,42,1) 45%, rgba(255,59,59,1) 70%, rgba(255,74,74,1) 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

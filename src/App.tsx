@@ -5,8 +5,53 @@ import { Navigation } from "./components/Navigation";
 import Title, { Size, Weight } from "./components/Title";
 import Link from "./components/Link";
 
+import data from "./data.json";
+import resumePDF from "./resume.pdf";
 import utilStyles from "./util.module.css";
 import styles from "./App.module.css";
+
+interface Role {
+  isActive: boolean;
+  name: string;
+  joinedAt: number;
+  leftAt: number;
+  color: string | null;
+}
+
+const roles: Role[] = data.roles.sort((a, b) => b.joinedAt - a.joinedAt);
+const currentRole = roles.find(({ isActive }) => isActive);
+
+function humanizeRoleDates(joinedAtStr: string, leftAtStr: string): string {
+  const humanizedParts = [
+    moment(joinedAtStr).format("MMMM YYYY"),
+    "-",
+    moment(leftAtStr).format("MMMM YYYY"),
+  ];
+
+  const duration = moment.duration(moment(leftAtStr).diff(moment(joinedAtStr)));
+  const years = duration.years();
+  const months = duration.months();
+
+  if (years || months) humanizedParts.push("·");
+  if (years !== 0) {
+    humanizedParts.push(`${years}`);
+    if (years > 1) {
+      humanizedParts.push("yrs");
+    } else {
+      humanizedParts.push("yr");
+    }
+  }
+  if (months !== 0) {
+    humanizedParts.push(`${months}`);
+    if (years > 1) {
+      humanizedParts.push("mos");
+    } else {
+      humanizedParts.push("mo");
+    }
+  }
+
+  return humanizedParts.filter(Boolean).join(" ");
+}
 
 const App: React.FC = () => {
   return (
@@ -35,12 +80,22 @@ const App: React.FC = () => {
             margin
           />
           <div className={styles.Role}>
-            <Title
-              value={`Available for hire!`}
-              size={Size.Medium}
-              weight={Weight.Heavy}
-              gradient
-            />
+            {currentRole ? (
+              <Title
+                value={currentRole.name}
+                size={Size.Medium}
+                weight={Weight.Heavy}
+                className={`${styles.Gradient}`}
+                color={currentRole.color}
+              />
+            ) : (
+              <Title
+                value={`Available for hire!`}
+                size={Size.Medium}
+                weight={Weight.Heavy}
+                gradient
+              />
+            )}
           </div>
 
           <div className={styles.Spacer} />
@@ -51,57 +106,26 @@ const App: React.FC = () => {
             weight={Weight.Heavy}
             margin
           />
-          <div className={styles.Role}>
-            <div className={styles.FlexWrapper}>
-              <Title
-                value={`Omada`}
-                size={Size.Medium}
-                weight={Weight.Heavy}
-                className={`${styles.Gradient} ${styles.Omada}`}
-              />
-              <span className={styles.Text}>
-                {" "}
-                left {moment("20220121").fromNow()}, employed 2 years 6 months
-              </span>
-            </div>
-          </div>
-          <div className={styles.Role}>
-            <div className={styles.FlexWrapper}>
-              <Title
-                value={`Notable`}
-                size={Size.Medium}
-                weight={Weight.Heavy}
-                className={`${styles.Gradient} ${styles.Notable}`}
-              />
-              <span className={styles.Text}>
-                {" "}
-                left {moment("20201030").fromNow()}, employed 2 years 6 months
-              </span>
-            </div>
-          </div>
-          <div className={styles.Role}>
-            <div className={styles.FlexWrapper}>
-              <Title value={`Shyp`} size={Size.Medium} weight={Weight.Heavy} />
-              <span className={styles.Text}>
-                {" "}
-                left {moment("20180301").fromNow()}, employed 10 months
-              </span>
-            </div>
-          </div>
-          <div className={styles.Role}>
-            <div className={styles.FlexWrapper}>
-              <Title
-                value={`Aux`}
-                size={Size.Medium}
-                weight={Weight.Heavy}
-                className={`${styles.Gradient} ${styles.Aux}`}
-              />
-              <span className={styles.Text}>
-                {" "}
-                left {moment("20180301").fromNow()}, employed 1 year
-              </span>
-            </div>
-          </div>
+          {roles.map(({ name, color, joinedAt, leftAt }) => {
+            const joinedAtStr = `${joinedAt}`;
+            const leftAtStr = `${leftAt}`;
+            return (
+              <div className={styles.Role}>
+                <div className={styles.FlexWrapper}>
+                  <Title
+                    value={name}
+                    size={Size.Medium}
+                    weight={Weight.Heavy}
+                    color={color}
+                    gradient
+                  />
+                  <span className={styles.Text}>
+                    {humanizeRoleDates(joinedAtStr, leftAtStr)}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
 
           <div className={styles.Spacer} />
 
@@ -116,6 +140,13 @@ const App: React.FC = () => {
               <Link href="mailto:alexaaronpena@gmail.com">
                 <Title
                   value={`Email`}
+                  size={Size.Medium}
+                  weight={Weight.Heavy}
+                />
+              </Link>
+              <Link href={resumePDF} newTab>
+                <Title
+                  value={`Resume`}
                   size={Size.Medium}
                   weight={Weight.Heavy}
                 />
