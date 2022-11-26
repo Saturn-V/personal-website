@@ -132,7 +132,9 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
       <div className={styles.Navigation}>
         <div className={styles.NavGroup}>
           <button
-            className={type === ImageType.Desktop ? styles.ButtonActive : ""}
+            className={`${styles.Button} ${
+              type === ImageType.Desktop && styles.Active
+            }`}
             onClick={() => {
               setType(ImageType.Desktop);
               setActiveIndex(0);
@@ -141,7 +143,9 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
             {"Desktop"}
           </button>
           <button
-            className={type === ImageType.Mobile ? styles.ButtonActive : ""}
+            className={`${styles.Button} ${
+              type === ImageType.Mobile && styles.Active
+            }`}
             onClick={() => {
               setType(ImageType.Mobile);
               setActiveIndex(0);
@@ -152,12 +156,14 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
         </div>
         <div className={styles.NavGroup}>
           <button
+            className={styles.Button}
             onClick={() => updateActiveIndex(activeIndex - 1)}
             disabled={activeIndex === 0}
           >
             {"<"}
           </button>
           <button
+            className={styles.Button}
             onClick={() => updateActiveIndex(activeIndex + 1)}
             disabled={
               isMobile

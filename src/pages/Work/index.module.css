@@ -46,14 +46,13 @@
     margin-right: 1rem;
 }
 
-button {
+.Button {
     border-radius: 3px;
+    border: 2px solid transparent;
 }
 
-.ButtonActive {
+.Active {
     background-color: rgb(84, 84, 84);
-    border: 2px solid transparent;
-    border-radius: 3px;
     color: white;
 }
 
