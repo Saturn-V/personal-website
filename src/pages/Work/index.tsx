@@ -58,6 +58,14 @@ function Project({ type, name, mobileAssets, desktopAssets }: ProjectProps) {
           </div>
         </div>
 
+        <span style={{ marginBottom: "1.5rem" }}>
+          A mobile first web app to merge music libraries across streaming
+          services. Use it as your daily music player while adding music
+          directly to your streaming service libraries. Create a Local Party and
+          build the music queue with your friends and family, or a Remote Party
+          to listen with friends from afar.
+        </span>
+
         <div
           style={{
             color: "grey",
@@ -183,10 +191,7 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {(type === ImageType.Desktop ? desktopAssets : mobileAssets).map(
-          (child: any) =>
-            // <div className={styles.CarouselItem}>{child}</div>
-
-            child
+          (child: any) => child
         )}
       </div>
     </div>
