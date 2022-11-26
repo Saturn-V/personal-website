@@ -48,6 +48,8 @@ const Title: React.FC<Props> = ({
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }
+          : color
+          ? { color }
           : void 0
       }
     >

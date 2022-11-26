@@ -27,7 +27,7 @@
 }
 
 .Margin {
-  margin-bottom: 5%;
+  margin-bottom: 1.5rem;
 }
 
 
@@ -41,8 +41,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-@media (min-width: 400px) {
-  .Margin {
-    margin-bottom: 0;
-  }
+@media (min-width: 481px) {
+  /* .Margin {
+    margin-bottom: 5%;
+  } */
 }

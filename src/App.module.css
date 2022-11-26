@@ -9,11 +9,18 @@ input {
   -webkit-appearance: none; /* remove inset shadow on mobile safari */
 }
 
-.Content {
-  /* height: 100%; */
+.Intro, .Content {
   width: 100%;
   display: flex;
-  margin-top: 1.5rem;
+  flex-direction: column;
+}
+
+/* .Intro {
+  margin-bottom: 4rem;
+} */
+
+.Experience {
+  display: flex;
   flex-direction: column;
 }
 
@@ -39,16 +46,16 @@ input {
 }
 
 .Text {
-  font-weight: 500;
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .HalfWidth {
   margin-right: 25%;
 }
 .AboutMe {
-  margin-right: 5%;
-  margin-bottom: 4rem;
+  /* margin-right: 5%; */
+  /* margin-bottom: 4rem; */
 }
 
 .Contact {
@@ -93,14 +100,14 @@ a:focus {
   flex-basis: 0;
 }
 
-/* For devices larger than 400px */
-@media (min-width: 400px) {
+/* For devices larger than mobile */
+@media (min-width: 481px) {
   .MainContent {
     margin: 0 7.5%;
   }
-  .Content {
+  /* .Content {
     margin-top: 3rem;
-  }
+  } */
   .AboutMe {
     margin-right: 15%;
   }
@@ -111,9 +118,9 @@ a:focus {
   .MainContent {
     margin: 0 15%;
   }
-  .Content {
+  /* .Content {
     margin-top: 5rem;
-  }
+  } */
   .AboutMe {
     margin-right: 25%;
   }
