@@ -46,6 +46,10 @@
     margin-right: 1rem;
 }
 
+button {
+    border-radius: 3px;
+}
+
 .ButtonActive {
     background-color: rgb(84, 84, 84);
     border: 2px solid transparent;
