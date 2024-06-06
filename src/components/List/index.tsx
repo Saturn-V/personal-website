@@ -1,6 +1,6 @@
 import React from "react";
 
-import utilStyles from "../../util.module.css";
+import utilStyles from "@/app/utilities.module.css";
 import styles from "./index.module.css";
 
 export function List() {

@@ -1,7 +1,8 @@
 import React from "react";
 
-import utilStyles from "../../util.module.css";
+import utilStyles from "@/app/utilities.module.css";
 import styles from "./index.module.css";
+import Link from "next/link";
 
 export enum Size {
   Large = "Large",
@@ -16,11 +17,14 @@ export enum Weight {
 interface Props {
   value: string;
   size: Size;
+  href?: string,
   weight?: Weight;
   className?: string;
   gradient?: boolean;
   margin?: boolean;
   color?: string | null;
+  onClick?: () => void
+  children?: JSX.Element
 }
 
 const DEFAULT_GRADIENT_COLOR =
@@ -28,29 +32,56 @@ const DEFAULT_GRADIENT_COLOR =
 const Title: React.FC<Props> = ({
   value,
   size,
+  href,
   weight,
   className,
   gradient,
   margin,
   color,
+  onClick,
   children,
 }) => {
-  return (
-    <span
-      className={`${styles.Title} ${styles[size]} ${utilStyles.Debug} ${
-        styles[weight || Weight.Default]
-      } ${className} ${margin && styles.Margin}`}
+  if (!!href) {
+    return <Link href={href}
+      className={`${styles.Title} ${styles[size]} ${utilStyles.Debug} ${styles[weight || Weight.Default]
+        } ${className} ${margin && styles.Margin}`}
       style={
         gradient
           ? {
-              background: color || DEFAULT_GRADIENT_COLOR,
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }
+            background: color || DEFAULT_GRADIENT_COLOR,
+            filter: "saturate(2)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            backgroundSize: "150% auto",
+            WebkitTextFillColor: "transparent",
+          }
           : color
-          ? { color }
-          : void 0
+            ? { color }
+            : void 0
+      }
+      onClick={onClick}
+    >
+      {value}
+      {children}
+    </Link>
+  }
+  return (
+    <span
+      className={`${styles.Title} ${styles[size]} ${utilStyles.Debug} ${styles[weight || Weight.Default]
+        } ${className} ${margin && styles.Margin}`}
+      style={
+        gradient
+          ? {
+            background: color || DEFAULT_GRADIENT_COLOR,
+            filter: "saturate(2)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            backgroundSize: "150% auto",
+            WebkitTextFillColor: "transparent",
+          }
+          : color
+            ? { color }
+            : void 0
       }
     >
       {value}

@@ -1,12 +1,25 @@
 .App {
-  height: 100%;
   display: flex;
+  flex-direction: column;
   text-align: center;
   flex: 1;
+  padding-bottom: 1rem;
 }
-input {
+
+.App > *:not(:first-child):not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.App input {
   font-family: inherit;
   -webkit-appearance: none; /* remove inset shadow on mobile safari */
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .Intro, .Content {
@@ -15,13 +28,19 @@ input {
   flex-direction: column;
 }
 
-/* .Intro {
-  margin-bottom: 4rem;
-} */
-
-.Experience {
+.experience {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  padding: var(--card-padding);
+}
+
+.experiences {
+  display: flex;
+  flex-direction: row;
+  /* column-gap: 4.5rem; */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .Left,
@@ -36,13 +55,8 @@ input {
   /* box-shadow: inset 0 0 10px #000000; */
 }
 
-.MainContent {
-  /* box-shadow: 0 0 10px 6px black; */
-  /* padding: 0 0.5rem; */
-  margin: 0 5%;
-  display: flex;
-  flex: 6;
-  flex-direction: column;
+.title {
+  margin-left: 35px;
 }
 
 .Text {
@@ -58,36 +72,39 @@ input {
   /* margin-bottom: 4rem; */
 }
 
-.Contact {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
-}
-
-.Contacts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.Contacts > a:not(:last-child) {
-  margin-right: 2rem;
-}
-
-.Contacts > a:hover,
-a:focus {
-  color: gray;
-}
-
 .Spacer {
   margin-bottom: 2rem;
 }
 
-.Job,
-.Role {
-  text-align: left;
-  margin-bottom: 7.5%;
+.current {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
+
+.Job,
+.role {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 3rem;
+  width: fit-content;
+}
+
+.role .Text:nth-child(odd) {
+  font-size: 1.25rem;
+  color: gray;
+}
+
+.role .Text:nth-child(even) {
+  margin-bottom: 1rem;
+}
+
+/* .role .Text:last-child {
+  margin-top: 1rem;
+} */
 
 .FlexWrapper {
   display: flex;
@@ -100,43 +117,7 @@ a:focus {
   flex-basis: 0;
 }
 
-/* For devices larger than mobile */
-@media (min-width: 481px) {
-  .MainContent {
-    margin: 0 7.5%;
-  }
-  /* .Content {
-    margin-top: 3rem;
-  } */
-  .AboutMe {
-    margin-right: 15%;
-  }
-}
 
-/* For devices larger than 550px */
-@media (min-width: 550px) {
-  .MainContent {
-    margin: 0 15%;
-  }
-  /* .Content {
-    margin-top: 5rem;
-  } */
-  .AboutMe {
-    margin-right: 25%;
-  }
-  .FlexWrapper {
-    flex-direction: row;
-  }
-  .Contacts {
-    display: flex;
-    flex-direction: row;
-    align-items: inherit;
-    margin-top: 1rem;
-  }
-  .Job, .Role {
-    margin-bottom: 1.5%;
-  }
-}
 
 .Gradient {
   background-clip: text;
@@ -184,4 +165,30 @@ a:focus {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+
+@media (max-width: 430px) {
+  .role {
+    /* flex-grow: 1; */
+    width: 100%;
+  }
+  
+  .role:last-child {
+    margin-bottom: 25px;
+  }
+
+  .label {
+    margin-bottom: 25px;
+  }
+
+  .experience {
+    padding: var(--card-padding-mobile)
+  }
+}
+
+@media (max-width: 675px) {
+  .App {
+    padding-bottom: 1.5rem;
+  }
 }

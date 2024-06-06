@@ -1,0 +1,46 @@
+{
+    "isAvailableForHire": true,
+    "roles": [
+        {
+            "isActive": false,
+            "name": "Aux",
+            "joinedAt": 20170401,
+            "leftAt": 20180301,
+            "color": "-webkit-linear-gradient(30deg,#552586 0%, #552586 30%, #804FB3 45%, #552586 70%, #552586 85%)"
+        },
+        {
+            "isActive": false,
+            "name": "Shyp",
+            "joinedAt": 20170601,
+            "leftAt": 20180301,
+            "color": "-webkit-linear-gradient(30deg, #000 0%, #333 30%, #666 45%, #333 70%, #000 85%)"
+        },
+        {
+            "isActive": false,
+            "name": "Notable",
+            "joinedAt": 20180501,
+            "leftAt": 20201030,
+            "color": "-webkit-linear-gradient(30deg, #0f1b5d 0%, #071c59 30%, #0b67fd 45%, #071c59 70%, #0f1b5d 85%)"
+        },
+        {
+            "isActive": false,
+            "name": "Omada",
+            "joinedAt": 20210101,
+            "leftAt": 20220121,
+            "color": "-webkit-linear-gradient(30deg, rgba(243, 114, 74, 1) 0%, rgba(250,121,81,1) 30%, rgba(252,147,132,1) 45%, rgba(250,121,81,1) 70%, rgba(243, 114, 74, 1) 85%)"
+        },
+        {
+            "isActive": false,
+            "name": "Perfect Venue",
+            "joinedAt": 20220515,
+            "leftAt": 20220825,
+            "color": "-webkit-linear-gradient(30deg, #9e1b32 0%, #9e1b32 30%, #AA0000 45%, #9e1b32 70%, #9e1b32 85%)"
+        },
+        {
+            "isActive": true,
+            "name": "SJULTRA",
+            "joinedAt": 20221215,
+            "color": "-webkit-linear-gradient(30deg, rgb(64, 139, 158) 0%, rgba(64, 139, 158, 0.75) 30%, rgba(64, 139, 158, 0.7) 45%, rgba(64, 139, 158, 0.75) 70%, rgb(64, 139, 158) 85%)"
+        }
+    ]
+}

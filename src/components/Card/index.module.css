@@ -1,0 +1,10 @@
+.Card {
+  background-color: white;
+  border-radius: 30px;
+}
+
+/* @media (max-width: 430px) {
+  .Card {
+    padding: 30px 25px 0;
+  }
+} */

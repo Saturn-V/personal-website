@@ -2,7 +2,18 @@
   /* width: 100%; */
   white-space: pre-wrap;
   text-align: left;
+  animation: textShine 2s ease-in-out infinite alternate;
 }
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
 
 .Title.Heavy {
   font-weight: 700;
@@ -27,7 +38,7 @@
 }
 
 .Margin {
-  margin-bottom: 1.5rem;
+  margin-bottom: 40px;
 }
 
 
@@ -40,9 +51,15 @@
   background: -webkit-linear-gradient(0deg, #ffa745 0%, #fe869f 30%, #ef7ac8 45%, #a083ed 70%, #43aeff 85%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  filter: saturate(2);
+  background-clip: text;
+  background-size: 150% auto;
 }
+
 @media (min-width: 481px) {
   /* .Margin {
     margin-bottom: 5%;
   } */
 }
+
