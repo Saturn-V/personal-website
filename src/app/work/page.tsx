@@ -11,7 +11,7 @@ import { Next, Previous } from "@/components/icons/carousel";
 
 enum ProjectType {
   WebApp = "Web App",
-  Sass = "SASS"
+  SaaS = "SaaS"
 }
 
 export default function WorkPage() {
@@ -28,14 +28,28 @@ export default function WorkPage() {
           directly to your streaming service libraries. Create a Local Party and
           build the music queue with your friends and family, or a Remote Party
           to listen with friends from afar."
-          tools={["Spotify SDK", "MusicKit JS SDK", "React", "Express", "Postgresql", "Web Sockets", "Docker", "Kubernetes", "iOS"]}
+          tools={["Spotify SDK", "MusicKit JS SDK", "React", "NextJS", "Express", "Postgresql", "Web Sockets", "Docker", "Kubernetes", "iOS"]}
           link={"https://discomusic.projects.alexaaronpena.com"}
+          landingLink={"https://discomusicapp.com"}
           mobileAssets={["/assets/work/disco/mobile1.png", "/assets/work/disco/mobile2.png", "/assets/work/disco/mobile3.png"]}
           desktopAssets={["/assets/work/disco/desktop1.png"]}
         />
 
         <Project
-          type={ProjectType.Sass}
+          type={ProjectType.SaaS}
+          name={"Portal Robotics"}
+          description="A Software as a Service (SasS) startup providing that extends your 
+          cloud experience to the edge and enhances the visibility, security, and control 
+          of your distributed edge infrastructure, significantly reducing management costs 
+          through an automated open architecture."
+          tools={["Rancher", "ArgoCD", "React", "NextJS", "Express", "Postgresql", "Web Sockets", "Docker", "K3s", "Shadcn", "SaltStack", "Helm", "ARM", "x86", "Rocky9", "RHEL", "Terraform", "NeuVector"]}
+          link={"https://www.portalrobotics.com"}
+          mobileAssets={[]}
+          desktopAssets={["/assets/work/portal/desktop1.png", "/assets/work/portal/desktop2.png", "/assets/work/portal/desktop3.png", "/assets/work/portal/desktop4.png"]}
+        />
+
+        <Project
+          type={ProjectType.SaaS}
           name={"La Conexion"}
           description="A Software as a Service (SasS) startup providing web hosting and 
           Social Media Marketing Agency (SMMA) services with end to end support. The
@@ -43,7 +57,7 @@ export default function WorkPage() {
           inital goal was to cater to local businesses and spanish speaking communities to
           empower these business owners with visibility, the best customer support, and 
           competetive pricing."
-          tools={["Turbo Repo", "React", "Vercel Hosting"]}
+          tools={["Turbo Repo", "React", "NextJS", "Vercel Hosting"]}
           link={"https://www.laconexcion.com"}
           mobileAssets={["/assets/work/la-conexion/mobile1.png", "/assets/work/la-conexion/mobile2.png", "/assets/work/la-conexion/mobile3.png"]}
           desktopAssets={["/assets/work/la-conexion/desktop1.png"]}
@@ -59,10 +73,11 @@ interface ProjectProps {
   description: string;
   tools: string[]
   link: string
+  landingLink?: string
   mobileAssets: string[];
   desktopAssets: string[];
 }
-function Project({ type, name, description, tools, link, mobileAssets, desktopAssets }: ProjectProps) {
+function Project({ type, name, description, tools, link, landingLink, mobileAssets, desktopAssets }: ProjectProps) {
   return (
     <Card className={styles.Project}>
       <>
@@ -75,9 +90,9 @@ function Project({ type, name, description, tools, link, mobileAssets, desktopAs
           />
           <div className={styles.Header}>
             <Title value={name} size={Size.Medium} weight={Weight.Heavy} margin />
-            <div>
+            <div className={styles.Section}>
               <button
-              className={[styles.buttonpill, styles.Active].join(" ")}
+                className={[styles.buttonpill, styles.Active].join(" ")}
                 onClick={() =>
                   window.open(
                     link,
@@ -87,6 +102,17 @@ function Project({ type, name, description, tools, link, mobileAssets, desktopAs
               >
                 Visit
               </button>
+              {landingLink && <button
+                className={[styles.buttonpill, styles.Active].join(" ")}
+                onClick={() =>
+                  window.open(
+                    landingLink,
+                    "_blank"
+                  )
+                }
+              >
+                Landing
+              </button>}
             </div>
           </div>
 
@@ -170,7 +196,7 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
           >
             {"Desktop"}
           </button>
-          <button
+          {mobileAssets.length > 0 && <button
             className={`${styles.buttonpill} ${type === ImageType.Mobile && styles.Active
               }`}
             onClick={() => {
@@ -179,7 +205,7 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
             }}
           >
             {"Mobile"}
-          </button>
+          </button>}
         </div>
         <div className={styles.NavGroup}>
           <button
@@ -193,12 +219,10 @@ function ImageCarousel({ mobileAssets, desktopAssets }: ImageCarouselProps) {
             className={styles.paddlenav}
             onClick={() => updateActiveIndex(activeIndex + 1)}
             disabled={
-              isMobile
-                ? activeIndex ===
+                activeIndex ===
                 (type === ImageType.Desktop
                   ? desktopAssets.length - 1
                   : mobileAssets.length - 1)
-                : true
             }
           >
             <Next />
